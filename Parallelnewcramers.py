@@ -115,6 +115,13 @@ def findSolution(coeff):
  
     # Matrix d using coeff as given in
     # cramer's rule
+    #initialise determinant
+    
+    for _ in range(len(coeff)):
+        for row in range(len(coeff[0])):
+            for col in range(len(coeff[0])):
+                d[row][col] = coeff[row][col]
+
     d = [[coeff[0][0], coeff[0][1], coeff[0][2]],
          [coeff[1][0], coeff[1][1], coeff[1][2]],
          [coeff[2][0], coeff[2][1], coeff[2][2]]]
@@ -178,16 +185,18 @@ if __name__ == "__main__":
  
     # storing coefficients of linear
     # equations in coeff matrix
-    coeff = [[2, -1, 3, 9],
-             [1, 1, 1, 6],
-             [1, -1, 1, 2]]
- 
-    start_time = time.time()
-    findSolution(coeff)
-    total_time = time.time() - start_time
-    print("Total time taken: ", total_time)
+    coeff = [[2, -1,  5,  1,  -3],
+             [3,  2,  2, -6, -32],
+             [1,  3,  3, -1, -47],
+             [5, -2, -3,  3,  49]] 
+    
 
-    start_time = time.time()
-    findSolutionParallel(coeff)
-    total_time = time.time() - start_time
-    print("Parallel total time taken: ", total_time)
+    # start_time = time.time()
+    # findSolution(coeff)
+    # total_time = time.time() - start_time
+    # print("Total time taken: ", total_time)
+
+    # start_time = time.time()
+    # findSolutionParallel(coeff)
+    # total_time = time.time() - start_time
+    # print("Parallel total time taken: ", total_time)
